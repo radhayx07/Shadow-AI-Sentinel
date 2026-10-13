@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}
+<h2>Scan History</h2><div class="card scroll">
+<table><tr><th>#</th><th>Time</th><th>Risk</th><th>Action</th><th>Categories</th><th></th></tr>
+{% for s in scans %}<tr><td>{{ s.scan_id }}</td><td>{{ s.scan_time }}</td>
+<td><span class="badge {{ s.risk_level }}">{{ s.risk_level }}</span></td><td>{{ s.action_taken }}</td>
+<td>{{ s.categories or '—' }}</td><td><a href="{{ url_for('scan_details', scan_id=s.scan_id) }}">Details</a></td></tr>
+{% else %}<tr><td colspan="6">No scans yet.</td></tr>{% endfor %}</table></div>{% endblock %}

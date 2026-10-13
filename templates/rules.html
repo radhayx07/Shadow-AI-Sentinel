@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block content %}
+<h2>Security Rules</h2>
+<div class="card scroll"><table><tr><th>Rule</th><th>Category</th><th>Regex pattern</th><th>Active</th><th></th></tr>
+{% for r in rules %}<tr><form method="post" action="{{ url_for('update_rule', rule_id=r.rule_id) }}">
+<td>{{ r.rule_name }}</td><td>{{ r.category_name }}</td>
+<td><input name="regex_pattern" value="{{ r.regex_pattern }}" required></td>
+<td><input type="checkbox" name="is_active" {{ 'checked' if r.is_active }}></td>
+<td><button>Save</button></td></form></tr>{% endfor %}</table></div>
+<div class="card"><h3>Add a rule</h3><form method="post">
+<label>Rule name</label><input name="rule_name" required maxlength="80">
+<label>Category</label><select name="category_id">{% for c in categories %}<option value="{{ c.category_id }}">{{ c.category_name }}</option>{% endfor %}</select>
+<label>Regex pattern</label><input name="regex_pattern" required>
+<button>Add rule</button></form></div>{% endblock %}

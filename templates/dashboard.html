@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block content %}
+<h2>Dashboard</h2>
+<div class="grid">
+<div class="card stat"><span>{{ totals.total }}</span>Total scans</div>
+<div class="card stat"><span>{{ totals.high }}</span>High-risk scans</div>
+<div class="card stat"><span>{{ totals.redacted }}</span>Redacted scans</div></div>
+<div class="card"><h3>Detections by category</h3>
+<table><tr><th>Category</th><th>Total found</th></tr>
+{% for r in by_category %}<tr><td>{{ r.category_name }}</td><td>{{ r.total }}</td></tr>{% endfor %}</table></div>
+{% endblock %}

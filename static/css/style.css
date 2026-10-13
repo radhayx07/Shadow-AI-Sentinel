@@ -1,0 +1,18 @@
+*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f3f6f4;color:#1d2b24}
+.nav{background:#14532d;color:#fff;padding:12px 20px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.nav a{color:#d1fae5;text-decoration:none}.nav b{margin-right:auto}
+.wrap{max-width:960px;margin:20px auto;padding:0 14px}
+.card{background:#fff;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 1px 4px #0002}
+.narrow{max-width:400px;margin:40px auto}.scroll{overflow-x:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.stat{text-align:center}.stat span{display:block;font-size:2.2rem;font-weight:700;color:#14532d}
+label{display:block;margin:10px 0 4px;font-weight:600}
+input,textarea,select{width:100%;padding:8px;border:1px solid #bbb;border-radius:6px;font:inherit}
+input[type=checkbox]{width:auto}
+button{background:#14532d;color:#fff;border:0;padding:9px 16px;border-radius:6px;cursor:pointer;margin-top:10px}
+button.alt{background:#b45309}
+table{width:100%;border-collapse:collapse}th,td{padding:8px;border-bottom:1px solid #e5e7eb;text-align:left}
+.badge{padding:2px 10px;border-radius:12px;color:#fff;font-size:.85rem}
+.Low{background:#16a34a}.Medium{background:#d97706}.High{background:#dc2626}
+.flash{padding:10px 14px;border-radius:6px;margin-bottom:12px}.success{background:#dcfce7}.error{background:#fee2e2}
+.note{color:#555;font-size:.9rem}

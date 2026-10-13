@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% block content %}
+<h2>Prompt Scanner</h2>
+<div class="card"><form method="post">
+<label>Paste your text before sharing it with an AI chatbot</label>
+<textarea name="text" rows="8" required></textarea>
+<button name="action" value="scan">Scan</button>
+<button name="action" value="redact" class="alt">Scan &amp; Redact</button></form>
+<p class="note">Your original text is never saved. Only the scan result is stored.</p></div>
+{% if result %}<div class="card"><h3>Result: <span class="badge {{ result.level }}">{{ result.level }} risk</span></h3>
+{% if result.found %}<table><tr><th>Category</th><th>Matches</th></tr>
+{% for item in result.found.values() %}<tr><td>{{ item.name }}</td><td>{{ item.count }}</td></tr>{% endfor %}</table>
+{% else %}<p>No sensitive data detected.</p>{% endif %}
+{% if result.redacted is not none %}<h4>Redacted text</h4>
+<textarea id="redacted" rows="6" readonly>{{ result.redacted }}</textarea>
+<button type="button" onclick="copyRedacted()">Copy</button>{% endif %}
+<p><a href="{{ url_for('scan_details', scan_id=result.scan_id) }}">View saved scan #{{ result.scan_id }}</a></p></div>{% endif %}
+{% endblock %}

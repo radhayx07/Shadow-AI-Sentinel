@@ -1,0 +1,40 @@
+erDiagram
+    Users ||--o{ Scans : "makes"
+    Scans ||--o{ ScanFindings : "has"
+    DetectionCategories ||--o{ ScanFindings : "is found in"
+    DetectionCategories ||--o{ SecurityRules : "is detected by"
+
+    Users {
+        int user_id PK
+        varchar username UK
+        varchar email UK
+        varchar password_hash
+        datetime created_at
+    }
+    Scans {
+        int scan_id PK
+        int user_id FK
+        datetime scan_time
+        enum risk_level
+        enum action_taken
+    }
+    DetectionCategories {
+        int category_id PK
+        varchar category_name UK
+        tinyint severity_weight
+        varchar description
+    }
+    SecurityRules {
+        int rule_id PK
+        int category_id FK
+        varchar rule_name UK
+        varchar regex_pattern
+        tinyint is_active
+        datetime created_at
+    }
+    ScanFindings {
+        int finding_id PK
+        int scan_id FK
+        int category_id FK
+        int match_count
+    }

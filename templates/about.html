@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+{% if db_error %}<div class="flash error"><b>Database problem:</b> {{ db_error }}<br>Check MySQL80 is running, your .env password, and that schema.sql was run.</div>{% endif %}
+<div class="card"><h2>About Project</h2>
+<p><b>Shadow AI Sentinel</b> checks text for emails, phone numbers, API keys and passwords before you share it with an AI chatbot, rates the risk, and can redact the sensitive values.</p>
+<p><b>Tech:</b> Python, Flask, MySQL, HTML, CSS, JavaScript.<br><b>Tables:</b> Users, Scans, DetectionCategories, ScanFindings, SecurityRules.</p>
+<p><b>Risk rules:</b> High = API key or credential found. Medium = phone number found. Low = only email or nothing.</p></div>{% endblock %}
